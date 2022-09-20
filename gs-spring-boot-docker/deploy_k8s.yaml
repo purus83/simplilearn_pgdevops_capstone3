@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplilearn_pgdevops_capstone3 
+  namespace: cep-project1 
+  labels:
+    app: pgdevops_capstone3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pgdevops_capstone3 
+  template:
+    metadata:
+      labels:
+        app: pgdevops_capstone3
+    spec:
+      containers:
+        - name: capstone-project3
+          image: purusothaman/capstone-project3 
+          ports:
+            - containerPort: 8080
