@@ -28,6 +28,11 @@ pipeline {
                 sh 'kubectl apply -f gs-spring-boot-docker/service_k8s.yaml'
                 }
             }
-        }
-    }
+         }
+    	stage('Deleting Image in Local System'){
+		steps{
+			sh 'docker image rmi purusothaman/myproject1:${BUILD_NUMBER}'
+	 		}
+		}    	
+	}
 }
