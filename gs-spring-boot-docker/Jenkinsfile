@@ -3,6 +3,11 @@ pipeline {
      
   
     stages{
+	stage('Docker Image Build'){
+		steps{
+			sh 'docker build -f gs-spring-boot-docker/Dockerfile -t purusothaman/capstone-project3:pgdevopsv1 .'
+		}
+	    }
          
         stage('Docker Image Push to DockerHub'){
 		steps{
