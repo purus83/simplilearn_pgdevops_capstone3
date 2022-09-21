@@ -12,7 +12,7 @@ pipeline {
                     namespace: 'default'
                     ]) {
                 sh 'kubectl get nodes -o wide'
-                sh 'kubectl apply -f gs-spring-boot-docker/deploy_k8s.yaml
+                sh 'kubectl apply -f gs-spring-boot-docker/deploy_k8s.yaml'
                 }
             }
         }
