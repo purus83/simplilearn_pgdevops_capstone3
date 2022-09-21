@@ -11,8 +11,9 @@ pipeline {
          
         stage('Docker Image Push to DockerHub'){
 		steps{
-			    withCredentials([usernamePassword(credentialsId: 'b8fee6dd-3efa-43be-bdab-6b13f4d16c02', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
-                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}" }
+			withCredentials([usernamePassword(credentialsId: 'b8fee6dd-3efa-43be-bdab-6b13f4d16c02', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
+                    	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}" 
+			sh "docker push purusothaman/capstone-project3:pgdevopsv1"  
 		    	}
 		}
         stage('Deploying Application in Kubernetes') {
