@@ -23,7 +23,7 @@ pipeline {
                     serverUrl: 'https://192.168.222.7:6443',
                     namespace: 'default'
                     ]) {
-                
+                sh 'sed -i 's/capstone-project3:pgdevops-BUILD_NUMBER/capstone-project3:pgdevops-${BUILD_NUMBER}/g' gs-spring-boot-docker/deploy_k8s.yaml'
                 sh 'kubectl apply -f gs-spring-boot-docker/deploy_k8s.yaml'
                 sh 'kubectl apply -f gs-spring-boot-docker/service_k8s.yaml'
                 }
