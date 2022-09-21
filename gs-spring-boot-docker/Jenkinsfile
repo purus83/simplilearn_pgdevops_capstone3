@@ -29,7 +29,7 @@ pipeline {
                 }
             }
          }
-    	stage('Deleting Image in Local System'){
+    	stage('cleaning up Residual Images in Local System'){
 		steps{
 			sh 'docker image rmi purusothaman/capstone-project3:pgdevops-${BUILD_NUMBER}'
 			sh 'docker image prune -f'
