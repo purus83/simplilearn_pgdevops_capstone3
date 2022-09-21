@@ -4,15 +4,16 @@ pipeline {
   
     stages{
         
-        stage('List pods') {
+        stage('Deploying Application in Kubernetes') {
             steps{
                 withKubeConfig([credentialsId: '50c1b910-06de-4418-92e6-d636bb510722',
  
                     serverUrl: 'https://192.168.222.7:6443',
                     namespace: 'default'
                     ]) {
-                sh 'kubectl get nodes -o wide'
+                #sh 'kubectl get nodes -o wide'
                 sh 'kubectl apply -f gs-spring-boot-docker/deploy_k8s.yaml'
+                sh 'kubectl apply -f gs-spring-boot-docker/service_k8s.yaml'
                 }
             }
         }
