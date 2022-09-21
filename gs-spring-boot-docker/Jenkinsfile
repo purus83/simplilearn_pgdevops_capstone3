@@ -24,7 +24,7 @@ pipeline {
                     namespace: 'default'
                     ]) {
 			
-		sh 'echo "sed -i 's/capstone-project3:pgdevops-BUILD_NUMBER/capstone-project3:pgdevops-${BUILD_NUMBER}/g' gs-spring-boot-docker/deploy_k8s.yaml" > update_docker_image_deployment_yaml_file.sh'
+		
 		sh "update_docker_image_deployment_yaml_file.sh"
                 sh 'kubectl apply -f gs-spring-boot-docker/deploy_k8s.yaml'
                 sh 'kubectl apply -f gs-spring-boot-docker/service_k8s.yaml'
