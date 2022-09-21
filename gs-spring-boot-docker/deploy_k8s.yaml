@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: capstone-project3
-          image: purusothaman/capstone-project3:pgdevops-${BUILD_NUMBER}
+          image: purusothaman/capstone-project3:pgdevops-BUILD_NUMBER
           ports:
             - containerPort: 8080
