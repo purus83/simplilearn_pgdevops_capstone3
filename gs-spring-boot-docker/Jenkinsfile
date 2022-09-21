@@ -3,7 +3,13 @@ pipeline {
      
   
     stages{
-        
+         
+        stage('Docker Image Push to DockerHub'){
+		    steps{
+			    withCredentials([usernamePassword(credentialsId: 'b8fee6dd-3efa-43be-bdab-6b13f4d16c02', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
+                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}" }
+			}
+		}
         stage('Deploying Application in Kubernetes') {
             steps{
                 withKubeConfig([credentialsId: '50c1b910-06de-4418-92e6-d636bb510722',
