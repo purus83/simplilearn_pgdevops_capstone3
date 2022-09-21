@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'Master-Node' } }
+    agent { node { label 'Linux-Node' } }
      
   
     stages{
