@@ -23,7 +23,7 @@ pipeline {
                     serverUrl: 'https://192.168.222.7:6443',
                     namespace: 'default'
                     ]) {
-		sh 'gs-spring-boot-docker/update_docker_image_deployment_yaml_file.sh ${BUILD_NUMBER}'	
+		sh '/bin/bash gs-spring-boot-docker/update_docker_image_deployment_yaml_file.sh ${BUILD_NUMBER}'	
                 sh 'kubectl apply -f gs-spring-boot-docker/deploy_k8s.yaml'
                 sh 'kubectl apply -f gs-spring-boot-docker/service_k8s.yaml'
                 }
